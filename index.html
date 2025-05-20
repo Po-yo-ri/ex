@@ -3,162 +3,590 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой Стильный Сайт</title>
+    <title>Minecraft Wiki - Всё о Minecraft</title>
     <style>
-        /* Общие стили */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            background-color: #f4f4f9;
-            color: #333;
-            line-height: 1.6;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
         }
-
-        /* Шапка сайта */
+        
         header {
-            background: linear-gradient(135deg, #600a0a,#fff8dc);
-            color: rgb(147, 12, 12);
-            padding: 1.5rem 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #2d2d2d;
+            padding: 20px 0;
+            border-bottom: 4px solid #3d3d3d;
         }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Навигационное меню */
-        nav {
-            background-color: #333;
-            padding: 1rem;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin: 0 1rem;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #a777e3;
-        }
-
-        /* Основное содержимое */
-        main {
-            padding: 2rem;
+        
+        .container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
         }
-
-        section {
-            background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-
-        section h2 {
-            color: #6e8efb;
-            margin-bottom: 1rem;
+        
+        .logo {
+            display: flex;
+            align-items: center;
         }
-
-        /* Подвал сайта */
-        footer {
+        
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        .logo h1 {
+            color: #4CAF50;
+            font-size: 28px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        nav {
             background-color: #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+        }
+        
+        .nav-menu li {
+            position: relative;
+        }
+        
+        .nav-menu a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 25px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu a:hover {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #444;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            padding: 12px 16px;
+            border-bottom: 1px solid #555;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #4CAF50;
+        }
+        
+        main {
+            padding: 30px 0;
+        }
+        
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #2a2a2a;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        h2 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+            font-size: 24px;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            color: #4CAF50;
+            margin: 15px 0;
+            font-size: 20px;
+        }
+        
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .img-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
+        .img-container img {
+            max-width: 30%;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border: 2px solid #4CAF50;
+            transition: transform 0.3s;
+        }
+        
+        .img-container img:hover {
+            transform: scale(1.05);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #4CAF50;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #4CAF50;
             color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #333;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #4CAF50;
+            color: white;
+            width: 50px;
+            height: 50px;
             text-align: center;
-            padding: 1.5rem 0;
-            margin-top: 2rem;
+            line-height: 50px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
         }
-
-        footer p {
-            margin: 0;
+        
+        .back-to-top:hover {
+            background-color: #45a049;
+            transform: translateY(-5px);
         }
-
-        /* Адаптивность */
+        
+        footer {
+            background-color: #222;
+            color: #aaa;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #4CAF50;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+        
         @media (max-width: 768px) {
-            nav ul {
+            .header-content {
                 flex-direction: column;
-                align-items: center;
+                text-align: center;
             }
-            nav ul li {
-                margin: 0.5rem 0;
+            
+            .logo {
+                margin-bottom: 15px;
+                justify-content: center;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+            }
+            
+            .dropdown-content {
+                position: static;
+            }
+            
+            .img-container img {
+                max-width: 100%;
+                margin-bottom: 15px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Шапка сайта -->
     <header>
-        <h1>Сабрина Карпентер</h1>
-        <p>Добро пожаловать на мой сайт!</p>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Minecraft Wiki</h1>
+                </div>
+                <div class="search">
+                    <input type="text" placeholder="Поиск по сайту..." style="padding: 8px; width: 250px; border-radius: 4px; border: none;">
+                </div>
+            </div>
+        </div>
     </header>
-
-    <!-- Навигация -->
+    
     <nav>
-        <ul>
-            <li><a href="#about">Биография</a></li>
-            <li><a href="#actor">Актёрская карьера</a></li>
-            <li><a href="#music">Музыка</a></li>
-            <li><a href="#fact">Интересные факты</a></li>
-        </ul>
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="#home">Главная</a></li>
+                <li class="dropdown">
+                    <a href="#gameplay">Геймплей</a>
+                    <div class="dropdown-content">
+                        <a href="#survival">Выживание</a>
+                        <a href="#creative">Креатив</a>
+                        <a href="#multiplayer">Мультиплеер</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#blocks-blocks">Блоки</a>
+                    <div class="dropdown-content">
+                        <a href="#building-blocks">Строительные</a>
+                        <a href="#decorative">Декоративные</a>
+                        <a href="#redstone">Редстоун</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#mobs">Мобы</a>
+                    <div class="dropdown-content">
+                        <a href="#passive">Пассивные</a>
+                        <a href="#neutral">Нейтральные</a>
+                        <a href="#hostile">Враждебные</a>
+                    </div>
+                </li>
+                <li><a href="#biomes">Биомы</a></li>
+                <li><a href="#updates">Обновления</a></li>
+                <li><a href="#guides">Гайды</a></li>
+            </ul>
+        </div>
     </nav>
-
-    <!-- Основное содержимое -->
-    <main>
-        <section id="about">
-            <h2>Биография</h2>
-            <h3>Ранние годы:</h3>
-            <p>Сабрина Энн Линн Карпентер родилась 11 мая 1999 года в городе Квакертауне, штат Пенсильвания. Отец — Дэвид Карпентер, мать — Элизабет Картрайт. В семье уже подрастали две дочери, Сара и Шэннон. В раннем детстве артистка из-за любви к книгам мечтала стать библиотекарем. Но в 2006 году на канале «Дисней» запустили сериал «Ханна Монтана» с Майли Сайрус в главной роли. И с этого момента девочка грезила только об одном — научиться петь и танцевать.
-
-                Будущая звезда стала брать уроки игры на фортепиано и гитаре. А в 10 лет участвовала в конкурсе Are You a Star, организованном Майли Сайрус. Смотр длился больше года. Сабрина вошла в тройку победителей, оставив позади более чем 10 тыс. конкурсантов. В это же время девочка начала публиковать на «Ютубе» свои каверы, перепела композиции своих любимых певиц.</p>
+    
+    <main class="container">
+        <section id="home">
+            <h2>Добро пожаловать в Minecraft Wiki!</h2>
+            <p>Minecraft — это песочная игра в жанре «открытый мир», разработанная шведским программистом Маркусом Перссоном и выпущенная его компанией Mojang AB. В Minecraft игроки исследуют пиксельный 3D-мир, добывают ресурсы, создают инструменты и предметы, строят сооружения и сражаются с мобами.</p>
+            
+            <div class="img-container"></div>
+            
+            <p>Игра была впервые выпущена в 2009 году и с тех пор получила огромное количество обновлений. Minecraft доступен на множестве платформ, включая ПК, консоли и мобильные устройства.</p>
         </section>
-
-
-        <section id="actor">
-            <h2>Актёрская карьера</h2>
-            <p>Актерский дебют юной Карпентер состоялся в сериале «Закон и порядок: Специальный корпус». Девочке досталась роль жертвы изнасилования — серьезная и сложная работа. Но именно благодаря столь нелегкой специфике, по словам Сабрины, она смогла окончательно удостовериться, что сделала правильный выбор относительно будущей профессии.
-                Дебют оказался успешным и повлек за собой новые предложения. График Карпентер составляли специальные агенты, потому что многие проекты снимались параллельно и надо было координировать участие юной актрисы. Сабрина сыграла молодую Хлою в сериале канала Fox «Игры Гудвина», предстала в образе 13-летней Меррин Уильямс в фэнтези-драме «Рога» вместе с Дэниелом Рэдклиффом и Джуно Темпл, появилась в молодежном ситкоме «Остин и Элли».
-                Все это была лишь разминка перед первой большой ролью в ее фильмографии — Майи Харт в сериале «Девушка познает мир» (в российском прокате известен как «Истории Райли»). Карпентер сыграла близкую подругу главной героини Райли Мэттьюз (ее образ воплотила Роуэн Бланчард). В отличие от спокойной, задумчивой Райли, Майя — активная, своенравная бунтарка, веселая и влюбчивая. Сабрина стала постоянной героиней сериала в течение всех трех сезонов, с 2014 по 2017 год.
-                В последующие годы исполнительница продолжала сниматься в проектах разных жанров.
-            </p>
+        
+        <section id="gameplay">
+            <h2>Геймплей</h2>
+            <p>Minecraft предлагает несколько режимов игры, каждый из которых предоставляет уникальный игровой опыт.</p>
+            
+            <article id="survival">
+                <h3>Режим выживания</h3>
+                <p>В режиме выживания игрок должен собирать ресурсы, строить укрытие, добывать пищу и защищаться от мобов. У игрока есть шкала здоровья и голода, а также инвентарь для хранения предметов.</p>
+                <p>Основные аспекты выживания:</p>
+                <ul>
+                    <li>Добыча ресурсов (дерево, камень, руды)</li>
+                    <li>Крафт инструментов и оружия</li>
+                    <li>Постройка убежища для защиты от мобов</li>
+                    <li>Исследование мира и поиск ценных ресурсов</li>
+                    <li>Сражение с боссами (Эндер Дракон, Иссушитель)</li>
+                </ul>
+            </article>
+            
+            <article id="creative">
+                <h3>Креативный режим</h3>
+                <p>В креативном режиме игрок имеет неограниченный доступ ко всем ресурсам и блокам, может летать и не получает урона. Этот режим идеально подходит для строительства масштабных проектов.</p>
+                <div class="img-container"></div>
+            </article>
+            
+            <article id="multiplayer">
+                <h3>Мультиплеер</h3>
+                <p>Minecraft поддерживает многопользовательскую игру на серверах, где игроки могут взаимодействовать друг с другом, строить совместные проекты или сражаться в мини-играх.</p>
+                <p>Популярные типы серверов:</p>
+                <table>
+                    <tr>
+                        <th>Тип сервера</th>
+                        <th>Описание</th>
+                    </tr>
+                    <tr>
+                        <td>Выживание</td>
+                        <td>Классический режим выживания с другими игроками</td>
+                    </tr>
+                    <tr>
+                        <td>Мини-игры</td>
+                        <td>Различные соревновательные игры (Bed Wars, SkyWars и др.)</td>
+                    </tr>
+                    <tr>
+                        <td>РП</td>
+                        <td>Ролевые серверы с экономикой и профессиями</td>
+                    </tr>
+                    <tr>
+                        <td>Строительные</td>
+                        <td>Серверы для творческого строительства</td>
+                    </tr>
+                </table>
+            </article>
         </section>
-
-        <section id="music">
-            <h2>Музыка</h2>
-            <p>Практически сразу со съемками «Историй Райли» Сабрина начала певческую карьеру. В 2014-м вышел ее дебютный мини-альбом Can't Blame a Girl for Trying. Также певица исполнила саундтрек к сериалу «Истории Райли». Полноформатный дебютный альбом Карпентер Eyes Wide Open, который с восторгом приняли как поклонники, так и критики, увидел свет в следующем году. Пластинка выиграла премию Radio Disney Music Award 2016.Очередной альбом певицы под названием Evolution появился в 2016 году. Тогда же Сабрина объявила о начале большого тура в его поддержку. Ярким хитом пластинки стала композиция Thumbs. В 2017 году девушка гастролировала по Европе с коллективом The Vamps, а также отправилась в летний тур с New Hope Club и выпустила сингл Why.
-                В мае следующего года вышел сингл Almost Love из будущего альбома «Singular: Act I, в который вошли такие хиты, как Paris, Sue Me. Клип на последнюю песню побил все рекорды по просмотрам в интернете. В нем Карпентер мелькала в разных нарядах. За «Первым актом» в 2019-м последовал и второй, а в 2022-м Сабрина порадовала фанатов пятой пластинкой — Emails I Can’t Send.</p>
+        
+        <section id="blocks-blocks">
+            <h2>Блоки</h2>
+            <p>Блоки — основные строительные элементы мира Minecraft. Существует более 150 различных типов блоков.</p>
+            
+            <article id="building-blocks">
+                <h3>Строительные блоки</h3>
+                <p>Основные блоки, используемые для строительства:</p>
+                <ul>
+                    <li>Дерево (дуб, берёза, ель, тропическое дерево)</li>
+                    <li>Камень (булыжник, каменный кирпич, андезит)</li>
+                    <li>Земля (трава, земля, песок, гравий)</li>
+                    <li>Минералы (уголь, железо, золото, алмаз)</li>
+                </ul>
+            </article>
+            
+            <article id="decorative">
+                <h3>Декоративные блоки</h3>
+                <p>Блоки, используемые для украшения построек:</p>
+                <div class="img-container"></div>
+            </article>
+            
+            <article id="redstone">
+                <h3>Редстоун и механизмы</h3>
+                <p>Редстоун — это аналог электричества в Minecraft, позволяющий создавать сложные механизмы:</p>
+                <ul>
+                    <li>Редстоун-провода</li>
+                    <li>Повторители и компараторы</li>
+                    <li>Поршни и липкие поршни</li>
+                    <li>Раздатчики и разбрызгиватели</li>
+                    <li>Ловушки и автоматические фермы</li>
+                </ul>
+            </article>
         </section>
-
-        <section id="fact">
-            <h2>Интересные факты</h2>
-            <p>После того как Сабрина начала сотрудничество с Тейлор Свифт, разразился скандал. Причиной его стало участие артистки в рекламе бренда Skims, который принадлежит Ким Кардашьян. Известно, что Кардашьян и Свифт давно в конфликтных отношениях, поэтому действия Сабрины поклонники певицы восприняли как предательство.
-                Скандал вызвал и клип на песню Карпентер Feather. Видео снимали в церкви Пресвятой Девы Марии в Нью-Йорке, в кадр попали танцы Сабрины в черном одеянии на фоне церковного алтаря и гробы в пастельных тонах. Но певица поспешила уверить недовольных в том, что все творческие процессы были согласованы с местным духовенством.</p>
+        
+        <section id="mobs">
+            <h2>Мобы</h2>
+            <p>Мобы — это живые существа, населяющие мир Minecraft. Они делятся на несколько категорий.</p>
+            
+            <article id="passive">
+                <h3>Пассивные мобы</h3>
+                <p>Мобы, которые не атакуют игрока:</p>
+                <ul>
+                    <li>Корова — источник кожи и мяса</li>
+                    <li>Свинья — источник свинины</li>
+                    <li>Овца — источник шерсти и баранины</li>
+                    <li>Курица — источник перьев, яиц и курятины</li>
+                </ul>
+            </article>
+            
+            <article id="neutral">
+                <h3>Нейтральные мобы</h3>
+                <p>Мобы, которые атакуют только в ответ:</p>
+                <div class="img-container"></div>
+            </article>
+            
+            <article id="hostile">
+                <h3>Враждебные мобы</h3>
+                <p>Мобы, которые атакуют игрока при обнаружении:</p>
+                <table>
+                    <tr>
+                        <th>Моб</th>
+                        <th>Особенности</th>
+                    </tr>
+                    <tr>
+                        <td>Зомби</td>
+                        <td>Атакует игрока, может вызывать других зомби</td>
+                    </tr>
+                    <tr>
+                        <td>Скелет</td>
+                        <td>Атакует издалека из лука</td>
+                    </tr>
+                    <tr>
+                        <td>Крипер</td>
+                        <td>Подкрадывается и взрывается</td>
+                    </tr>
+                    <tr>
+                        <td>Эндермен</td>
+                        <td>Телепортируется, атакует если на него смотреть</td>
+                    </tr>
+                </table>
+            </article>
+        </section>
+        
+        <section id="biomes">
+            <h2>Биомы</h2>
+            <p>Биомы — это регионы в мире Minecraft с уникальными характеристиками, растительностью и мобами.</p>
+            
+            <div class="img-container"></div>
+            
+            <p>Некоторые из основных биомов:</p>
+            <ul>
+                <li>Лес — много деревьев, волков</li>
+                <li>Пустыня — кактусы, песок, храмы</li>
+                <li>Тайга — ели, волки</li>
+                <li>Равнина — много травы, лошади</li>
+                <li>Джунгли — высокие деревья, оцелоты</li>
+                <li>Горы — высокие пики, ламы</li>
+                <li>Океан — много воды, рыба, затонувшие корабли</li>
+            </ul>
+        </section>
+        
+        <section id="updates">
+            <h2>Обновления</h2>
+            <p>Minecraft регулярно получает крупные обновления, добавляющие новый контент в игру.</p>
+            
+            <h3>Последние крупные обновления:</h3>
+            <table>
+                <tr>
+                    <th>Обновление</th>
+                    <th>Год</th>
+                    <th>Основные изменения</th>
+                </tr>
+                <tr>
+                    <td>Caves & Cliffs</td>
+                    <td>2021</td>
+                    <td>Новые пещеры, горы, мобы и блоки</td>
+                </tr>
+                <tr>
+                    <td>Nether Update</td>
+                    <td>2020</td>
+                    <td>Обновление Нижнего мира</td>
+                </tr>
+                <tr>
+                    <td>Village & Pillage</td>
+                    <td>2019</td>
+                    <td>Обновление деревень и рейдов</td>
+                </tr>
+                <tr>
+                    <td>Update Aquatic</td>
+                    <td>2018</td>
+                    <td>Обновление океанов</td>
+                </tr>
+            </table>
+        </section>
+        
+        <section id="guides">
+            <h2>Гайды</h2>
+            <p>Полезные руководства по игре Minecraft.</p>
+            
+            <article>
+                <h3>Как выжить в первую ночь</h3>
+                <p>1. Соберите дерево (минимум 3 блока)<br>
+                2. Сделайте верстак и деревянную кирку<br>
+                3. Добудьте камень и сделайте каменные инструменты<br>
+                4. Постройте простое убежище или выкопайте пещеру<br>
+                5. Сделайте факелы для освещения</p>
+            </article>
+            
+            <article>
+                <h3>Как найти алмазы</h3>
+                <p>Алмазы генерируются между уровнями 1 и 15. Лучший способ их найти:</p>
+                <ul>
+                    <li>Копайте шахту до уровня 11</li>
+                    <li>Делайте туннели длиной 20 блоков с промежутками в 2 блока</li>
+                    <li>Используйте железную или алмазную кирку</li>
+                    <li>Будьте осторожны с лавой</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Как победить Эндер Дракона</h3>
+                <p>1. Найдите крепость и активируйте портал в Край<br>
+                2. Возьмите хорошую броню, оружие и зелья<br>
+                3. Уничтожьте кристаллы на вершинах обелисков<br>
+                4. Атакуйте дракона, когда он опускается<br>
+                5. После победы исследуйте портал в дальние острова</p>
+            </article>
         </section>
     </main>
-
+    
+    <a href="#" class="back-to-top">↑</a>
+    
     <footer>
-        <p>&copy; 2025 Мой Сайт. Все права защищены.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>О сайте</h3>
+                    <p>Minecraft Wiki — это неофициальный справочный сайт по игре Minecraft. Все материалы взяты из открытых источников.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Быстрые ссылки</h3>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#gameplay">Геймплей</a></li>
+                        <li><a href="#blocks-blocks">Блоки</a></li>
+                        <li><a href="#mobs">Мобы</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Полезные ресурсы</h3>
+                    <ul>
+                        <li><a href="https://www.minecraft.net" target="_blank">Официальный сайт</a></li>
+                        <li><a href="https://feedback.minecraft.net" target="_blank">Фидбек</a></li>
+                        <li><a href="https://help.minecraft.net" target="_blank">Поддержка</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Minecraft Wiki. Не является аффилированным с Mojang или Microsoft. Все права на игру принадлежат Mojang Studios.</p>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
-
-
